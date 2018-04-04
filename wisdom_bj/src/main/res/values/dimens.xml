@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="start_btn_margin_bottom">100dp</dimen>
+    <dimen name="dot_left_margin">20dp</dimen>
+    <dimen name="dot_size">20dp</dimen>
+    <dimen name="common_title_height">74dp</dimen>
+    <dimen name="common_title_menu_height">74dp</dimen>
+    <dimen name="common_title_menu_width">74dp</dimen>
+</resources>

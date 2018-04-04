@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">WisdomBJ</string>
+
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="start_button">Start</string>
+    <string name="menu_news">News</string>
+    <string name="menu_thematic">Thematic</string>
+    <string name="menu_photos">Photos</string>
+    <string name="menu_interaction">Interaction</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_news_center">New Center</string>
+    <string name="menu_wisdom_service">Wisdom Service</string>
+    <string name="menu_government">Government</string>
+    <string name="menu_setting">Setting</string>
+</resources>
