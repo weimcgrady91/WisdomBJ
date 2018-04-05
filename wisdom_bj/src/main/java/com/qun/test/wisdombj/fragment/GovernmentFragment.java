@@ -11,30 +11,30 @@ import android.view.ViewGroup;
 import com.qun.test.wisdombj.R;
 
 /**
- * Created by Administrator on 2018/4/4 0004.
+ * Created by Administrator on 2018/4/5.
  */
 
-public class HomeFragment extends BasePageFragment {
-    public HomeFragment() {
+public class GovernmentFragment extends BasePageFragment {
+    public GovernmentFragment() {
 
     }
 
-    public static HomeFragment newInstance() {
+    public static GovernmentFragment newInstance() {
         Bundle bundle = new Bundle();
-        HomeFragment homeFragment = new HomeFragment();
-        homeFragment.setArguments(bundle);
-        return homeFragment;
+        GovernmentFragment governmentFragment = new GovernmentFragment();
+        governmentFragment.setArguments(bundle);
+        return governmentFragment;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, null, false);
+        View view = inflater.inflate(R.layout.fragment_government, null, false);
         return view;
     }
 
     @Override
     public void loadData() {
-        Log.e("weiqun12345","HomeFragment initData");
+        Log.e("weiqun12345","GovernmentFragment initData");
     }
 }

@@ -16,4 +16,7 @@
     <string name="menu_wisdom_service">Wisdom Service</string>
     <string name="menu_government">Government</string>
     <string name="menu_setting">Setting</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

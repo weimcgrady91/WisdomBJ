@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WisdomBJ.iml" filepath="$PROJECT_DIR$/WisdomBJ.iml" />
+      <module fileurl="file://E:\all_ws\as_ws\WisdomBJ\WisdomBJ.iml" filepath="E:\all_ws\as_ws\WisdomBJ\WisdomBJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/wisdom_bj/wisdom_bj.iml" filepath="$PROJECT_DIR$/wisdom_bj/wisdom_bj.iml" />
+      <module fileurl="file://E:\all_ws\as_ws\WisdomBJ\wisdom_bj\wisdom_bj.iml" filepath="E:\all_ws\as_ws\WisdomBJ\wisdom_bj\wisdom_bj.iml" />
     </modules>
   </component>
 </project>

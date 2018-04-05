@@ -1,97 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context="com.qun.test.wisdombj.activity.HomeActivity">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              tools:context="com.qun.test.wisdombj.activity.HomeActivity">
 
     <com.qun.lib.slidermenu.SliderMenu
         android:id="@+id/slider_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/ll_menu_container"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/menu_bg"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="20dp">
+        <include layout="@layout/home_menu"/>
 
-            <RadioButton
-                style="@style/menu_slider_style"
-                android:checked="true"
-                android:text="@string/menu_news" />
-
-            <TextView
-                style="@style/menu_slider_style"
-                android:text="@string/menu_thematic" />
-
-            <TextView
-                style="@style/menu_slider_style"
-                android:text="@string/menu_photos" />
-
-            <TextView
-                style="@style/menu_slider_style"
-                android:text="@string/menu_interaction" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_main_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <include layout="@layout/common_title" />
-
-            <FrameLayout
-                android:id="@+id/fl_content_container"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/common_title_height"
-                android:background="@android:color/darker_gray">
-
-                <RadioGroup
-                    android:id="@+id/rg"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        style="@style/menu_bottom_style"
-                        android:drawableTop="@drawable/selector_menu_home"
-                        android:text="@string/menu_home" />
-
-                    <RadioButton
-                        style="@style/menu_bottom_style"
-                        android:drawableTop="@drawable/selector_menu_news_center"
-                        android:text="@string/menu_news_center" />
-
-                    <RadioButton
-                        style="@style/menu_bottom_style"
-                        android:drawableTop="@drawable/selector_menu_wisdom_service"
-                        android:text="@string/menu_wisdom_service" />
-
-                    <RadioButton
-                        style="@style/menu_bottom_style"
-                        android:drawableTop="@drawable/selector_menu_government"
-                        android:text="@string/menu_government" />
-
-                    <RadioButton
-                        style="@style/menu_bottom_style"
-                        android:drawableTop="@drawable/selector_menu_setting"
-                        android:text="@string/menu_setting" />
-                </RadioGroup>
-            </LinearLayout>
-        </LinearLayout>
+        <include layout="@layout/home_content"/>
     </com.qun.lib.slidermenu.SliderMenu>
 </LinearLayout>

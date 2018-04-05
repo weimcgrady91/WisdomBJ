@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -49,6 +50,7 @@ public class SplashActivity extends AppCompatActivity {
         );
         setContentView(R.layout.activity_splash);
         startEnterAnim();
+        Log.e("weiqun12345","Main Thread is=" + Thread.currentThread().getId());
     }
 
     private void startEnterAnim() {

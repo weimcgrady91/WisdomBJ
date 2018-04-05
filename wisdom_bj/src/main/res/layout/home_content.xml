@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/common_title"/>
+
+    <FrameLayout
+        android:id="@+id/fl_content_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_title_height"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            style="@style/menu_bottom_style"
+            android:drawableTop="@drawable/selector_menu_home"
+            android:text="@string/menu_home"/>
+
+        <RadioButton
+            android:id="@+id/rb_new_center"
+            style="@style/menu_bottom_style"
+            android:drawableTop="@drawable/selector_menu_news_center"
+            android:text="@string/menu_news_center"/>
+
+        <RadioButton
+            android:id="@+id/rb_wisdom_service"
+            style="@style/menu_bottom_style"
+            android:drawableTop="@drawable/selector_menu_wisdom_service"
+            android:text="@string/menu_wisdom_service"/>
+
+        <RadioButton
+            android:id="@+id/rb_government"
+            style="@style/menu_bottom_style"
+            android:drawableTop="@drawable/selector_menu_government"
+            android:text="@string/menu_government"/>
+
+        <RadioButton
+            android:id="@+id/rb_setting"
+            style="@style/menu_bottom_style"
+            android:drawableTop="@drawable/selector_menu_setting"
+            android:text="@string/menu_setting"/>
+    </RadioGroup>
+</LinearLayout>
