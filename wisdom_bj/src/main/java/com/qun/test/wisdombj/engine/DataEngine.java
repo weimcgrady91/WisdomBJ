@@ -2,8 +2,6 @@ package com.qun.test.wisdombj.engine;
 
 import android.util.Log;
 
-import com.qun.test.wisdombj.ConstantValue;
-
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
@@ -14,46 +12,31 @@ import org.xutils.x;
 
 public class DataEngine {
 
-    public interface OnParseDataListener {
-        void onParseData(String result);
+    private OnRequestDataListener mOnRequestDataListener;
+
+    public void setOnRequestDataListener(OnRequestDataListener onRequestDataListener) {
+        mOnRequestDataListener = onRequestDataListener;
     }
 
-    //    private Handler mHandler;
-    private OnParseDataListener mOnParseDataListener;
-
-    //    public DataEngine(Handler handler) {
-//        mHandler = handler;
-//    }
-//
-
-    public OnParseDataListener getOnParseDataListener() {
-        return mOnParseDataListener;
-    }
-
-    public void setOnParseDataListener(OnParseDataListener onParseDataListener) {
-        mOnParseDataListener = onParseDataListener;
-    }
-
-    private void parseData(final String result) {
-        if (mOnParseDataListener != null) {
-            mOnParseDataListener.onParseData(result);
-        }
-    }
 
     public void requestData(String url) {
         RequestParams params = new RequestParams(url);
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                //解析result
-                Log.e("weiqun12345", "result=" + result);
-                parseData(result);
+                Log.e("weiqun12345", "request Data success=" + result);
+                if (mOnRequestDataListener != null) {
+                    mOnRequestDataListener.onProcessData(result);
+                }
             }
 
             //请求异常后的回调方法
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
                 Log.e("weiqun12345", " onError thread id=" + Thread.currentThread().getId());
+                if (mOnRequestDataListener != null) {
+                    mOnRequestDataListener.onRequestDataError();
+                }
             }
 
             //主动调用取消请求的回调方法
@@ -64,8 +47,13 @@ public class DataEngine {
 
             @Override
             public void onFinished() {
-                Log.e("weiqun12345", " onFinished thread id=" + Thread.currentThread().getId());
             }
         });
+    }
+
+    public interface OnRequestDataListener {
+        void onProcessData(String result);
+
+        void onRequestDataError();
     }
 }

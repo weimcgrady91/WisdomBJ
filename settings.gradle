@@ -1,1 +1,1 @@
-include ':wisdom_bj'
+include ':wisdom_bj', ':pagetabindicator', ':pullrefreshlistview', ':pollingview'

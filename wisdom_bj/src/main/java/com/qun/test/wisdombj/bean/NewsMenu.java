@@ -1,15 +1,18 @@
 package com.qun.test.wisdombj.bean;
 
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2018/4/5.
  */
 
-public class NewsMenu {
+public class NewsMenu implements Parcelable {
     private int retcode;
-    private List<NewsMenuData> data;
-    public List<Integer> extend;
+    private ArrayList<NewsMenuData> data;
+    public ArrayList<Integer> extend;
     private int type;
 
     public int getRetcode() {
@@ -20,19 +23,19 @@ public class NewsMenu {
         this.retcode = retcode;
     }
 
-    public List<NewsMenuData> getData() {
+    public ArrayList<NewsMenuData> getData() {
         return data;
     }
 
-    public void setData(List<NewsMenuData> data) {
+    public void setData(ArrayList<NewsMenuData> data) {
         this.data = data;
     }
 
-    public List<Integer> getExtend() {
+    public ArrayList<Integer> getExtend() {
         return extend;
     }
 
-    public void setExtend(List<Integer> extend) {
+    public void setExtend(ArrayList<Integer> extend) {
         this.extend = extend;
     }
 
@@ -44,104 +47,6 @@ public class NewsMenu {
         this.type = type;
     }
 
-    public class NewsMenuData {
-        private int id;
-        private String title;
-        private int type;
-        private List<NewsTabData> children;
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public int getType() {
-            return type;
-        }
-
-        public void setType(int type) {
-            this.type = type;
-        }
-
-        public List<NewsTabData> getChildren() {
-            return children;
-        }
-
-        public void setChildren(List<NewsTabData> children) {
-            this.children = children;
-        }
-
-        @Override
-        public String toString() {
-            return "NewsMenuData{" +
-                    "id=" + id +
-                    ", title='" + title + '\'' +
-                    ", type=" + type +
-                    ", children=" + children +
-                    '}';
-        }
-    }
-
-    public class NewsTabData {
-        private int id;
-        private String title;
-        private int type;
-        private String url;
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public int getType() {
-            return type;
-        }
-
-        public void setType(int type) {
-            this.type = type;
-        }
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
-
-        @Override
-        public String toString() {
-            return "NewsTabData{" +
-                    "id=" + id +
-                    ", title='" + title + '\'' +
-                    ", type=" + type +
-                    ", url='" + url + '\'' +
-                    '}';
-        }
-    }
-
     @Override
     public String toString() {
         return "NewsMenu{" +
@@ -151,4 +56,40 @@ public class NewsMenu {
                 ", type=" + type +
                 '}';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.retcode);
+        dest.writeTypedList(this.data);
+        dest.writeList(this.extend);
+        dest.writeInt(this.type);
+    }
+
+    public NewsMenu() {
+    }
+
+    protected NewsMenu(Parcel in) {
+        this.retcode = in.readInt();
+        this.data = in.createTypedArrayList(NewsMenuData.CREATOR);
+        this.extend = new ArrayList<Integer>();
+        in.readList(this.extend, Integer.class.getClassLoader());
+        this.type = in.readInt();
+    }
+
+    public static final Parcelable.Creator<NewsMenu> CREATOR = new Parcelable.Creator<NewsMenu>() {
+        @Override
+        public NewsMenu createFromParcel(Parcel source) {
+            return new NewsMenu(source);
+        }
+
+        @Override
+        public NewsMenu[] newArray(int size) {
+            return new NewsMenu[size];
+        }
+    };
 }

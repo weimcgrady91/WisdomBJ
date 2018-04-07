@@ -14,7 +14,7 @@ import com.qun.test.wisdombj.R;
  * Created by Administrator on 2018/4/4 0004.
  */
 
-public class HomeFragment extends BasePageFragment {
+public class HomeFragment extends BaseFragment {
     public HomeFragment() {
 
     }
@@ -35,6 +35,6 @@ public class HomeFragment extends BasePageFragment {
 
     @Override
     public void loadData() {
-        Log.e("weiqun12345","HomeFragment initData");
+
     }
 }

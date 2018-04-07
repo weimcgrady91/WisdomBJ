@@ -14,7 +14,7 @@ import com.qun.test.wisdombj.R;
  * Created by Administrator on 2018/4/5.
  */
 
-public class SettingFragment extends BasePageFragment {
+public class SettingFragment extends BaseFragment {
     public SettingFragment() {
 
     }
@@ -35,6 +35,6 @@ public class SettingFragment extends BasePageFragment {
 
     @Override
     public void loadData() {
-        Log.e("weiqun12345","SettingFragment initData");
+
     }
 }

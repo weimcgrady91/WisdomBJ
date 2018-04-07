@@ -1,6 +1,6 @@
 package com.qun.test.wisdombj;
 
-import com.qun.test.wisdombj.bean.NewsMenu;
+import com.qun.test.wisdombj.bean.NewsMenuData;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ import java.util.List;
  */
 
 public interface OnFillMenuDataListener {
-    public void onFillMenu(List<NewsMenu.NewsMenuData> list);
+    public void onFillMenu(List<NewsMenuData> list);
 }

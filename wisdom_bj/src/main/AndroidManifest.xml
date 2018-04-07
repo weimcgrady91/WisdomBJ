@@ -27,9 +27,13 @@
             android:name=".activity.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme"/>
         <activity android:name=".activity.GuideActivity"/>
-        <activity android:name=".activity.HomeActivity"></activity>
+        <activity
+            android:name=".activity.HomeActivity"
+            android:theme="@style/Theme.PageIndicatorDefaults"/>
+        <activity android:name=".activity.NewsDetailActivity">
+        </activity>
     </application>
 
 </manifest>

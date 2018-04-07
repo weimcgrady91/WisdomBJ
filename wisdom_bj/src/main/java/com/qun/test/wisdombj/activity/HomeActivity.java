@@ -3,6 +3,7 @@ package com.qun.test.wisdombj.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -20,8 +21,8 @@ import android.widget.TextView;
 import com.qun.lib.slidermenu.SliderMenu;
 import com.qun.test.wisdombj.OnFillMenuDataListener;
 import com.qun.test.wisdombj.R;
-import com.qun.test.wisdombj.bean.NewsMenu;
-import com.qun.test.wisdombj.fragment.BasePageFragment;
+import com.qun.test.wisdombj.bean.NewsMenuData;
+import com.qun.test.wisdombj.fragment.BaseFragment;
 import com.qun.test.wisdombj.fragment.GovernmentFragment;
 import com.qun.test.wisdombj.fragment.HomeFragment;
 import com.qun.test.wisdombj.fragment.NewCenterFragment;
@@ -37,7 +38,7 @@ public class HomeActivity extends AppCompatActivity implements OnFillMenuDataLis
     private SliderMenu mSliderMenu;
     private TextView mTvTitle;
     private FragmentManager mFm;
-    private List<BasePageFragment> mFragmentList;
+    private List<BaseFragment> mFragmentList;
     private ImageButton mBtnMenuToggle;
     private ListView mListView;
     private LeftMenuAdapter mAdapter;
@@ -87,15 +88,22 @@ public class HomeActivity extends AppCompatActivity implements OnFillMenuDataLis
         }
     }
 
-    private List<NewsMenu.NewsMenuData> mNewsMenuData = new ArrayList<>();
+    private List<NewsMenuData> mNewsMenuData = new ArrayList<>();
 
     @Override
-    public void onFillMenu(List<NewsMenu.NewsMenuData> list) {
+    public void onFillMenu(List<NewsMenuData> list) {
         mCurrentMenuPos = 0;
         mNewsMenuData.clear();
         mNewsMenuData.addAll(list);
         mAdapter.notifyDataSetChanged();
         setTitle(mNewsMenuData.get(mCurrentMenuPos).getTitle());
+    }
+
+    private void setDetail() {
+        NewCenterFragment fragment = (NewCenterFragment) mFm.findFragmentByTag("newCenterFragment");
+        if (fragment != null) {
+            fragment.setDetailPage(mCurrentMenuPos);
+        }
     }
 
     private void initView() {
@@ -159,6 +167,7 @@ public class HomeActivity extends AppCompatActivity implements OnFillMenuDataLis
                 toggleMenu();
                 setTitle(mNewsMenuData.get(position).getTitle());
                 mAdapter.notifyDataSetChanged();
+                setDetail();
             }
         });
     }
