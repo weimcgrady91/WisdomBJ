@@ -17,6 +17,7 @@
         android:horizontalSpacing="20dp"
         android:numColumns="2"
         android:visibility="visible"
+        
         android:verticalSpacing="10dp"
         />
 </FrameLayout>
